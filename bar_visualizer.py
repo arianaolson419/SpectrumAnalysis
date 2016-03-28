@@ -1,11 +1,15 @@
 import pygame 
 import os, sys
 import time
+import csv
 
 
 class bar(object):
 
 	def __init__(self, amplitude, min_frequency, max_frequency,  screen_height, color = [50, 50, 50]):
+		"""
+		Creates a rectangular bar object
+		"""
 		self.amplitude = amplitude
 		self.min_frequency = min_frequency
 		self.max_frequency = max_frequency
@@ -38,7 +42,7 @@ class bar_main():
 
 	def main_loop(self):
 
-		a = 300	
+		a = 300	# sets initial bar height
 		
 		while 1:
 			for event in pygame.event.get():
@@ -54,9 +58,8 @@ class bar_main():
 			self.window.blit(self.background, (0,0))
 			# refreshes the display and makes all of the changes visisble
 			pygame.display.flip()
-			time.sleep(0.5)
-			a -= 10
-			print a
+			time.sleep(0.01) #delay between stuff
+			a -= 2 #sets new bar height
 
 if __name__ == "__main__":
 	newGame = bar_main()

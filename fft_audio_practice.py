@@ -1,5 +1,6 @@
 from pylab import *
 from scipy.io import wavfile
+import csv
 
 sampFreq, snd = wavfile.read('440_sine.wav')
 s1 = snd[:,0]
