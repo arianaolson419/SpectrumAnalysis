@@ -1,0 +1,28 @@
+﻿Technical Review Reflection
+
+
+Feedback and decisions: Most of our feedback can be compressed into not taking on too much at once and choosing a clear direction. We were told to be cautious about taking on sentiment analysis because it can become the entire project (and has been an entire final project in the past for some teams). We also had a wide spread of ideas for features such as interfacing between python and arduino and creating a GUI. We were told that our ideas could all make interesting projects, but that we should choose a direction instead of bouncing around with ideas at this stage. There were a lot of various ideas regarding the structure/form of the LED sculpture, however we would like to focus on implementing our first idea in code before we complicate the electrical side of things. Going forward, we have decided not to do sentiment analysis, and instead focus on making a cool visualizer. We have also committed to using a Raspberry Pi to drive our LEDs and creating a simple GUI using Flask, Pygame, or TKinter. 
+
+
+Review Process Reflection: The review went well. We pretty much stuck to our agenda, but we sort of ended up merging the ideation and discussion sessions together because people seemed comfortable ideating while we discussed our project. We believe that we provided enough context for our audience. There were a few misunderstandings during the discussion session, but we made sure to clear those up before continuing the discussion. To have an even more effective technical review next time we could be more specific with our code and complicated technical problems that we are having. Because this technical review was very early on in the project, it was fairly vague, but it was also extremely helpful to make our project more defined. 
+
+
+
+
+Summary:
+* Don’t do sentiment analysis
+* Use a pi instead of an arduino
+* Flask is good for a GUI as is TKinter 
+   *  “pygame ain’t awful”
+* We need to keep a handle on the vagueness
+
+
+
+
+Future Course of Action:
+1. Successfully control individual LEDs using the pi
+2. Implement our visualizer code on the LEDs and pi
+3. Create a GUI that allows the user to pick from a list of pre-loaded songs
+4. Continue developing both the LED patterns/analysis and the GUI
+   1. We can add complexity to the LED display by displaying color changes based on the average volume, pitch, etc
+   2. The GUI can be developed by adding extra options for colors, timing, or volume of the display. Also possibly allowing the user to upload their own song for visualization.
