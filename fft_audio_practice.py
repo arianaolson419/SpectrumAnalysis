@@ -8,18 +8,20 @@ timeArray = arange(0, float(len(s1)), 1)
 timeArray = timeArray / sampFreq
 timeArray = timeArray * 1000 #scale to milliseconds
 
-plt = plot(timeArray, s1[0:len(timeArray)], color='k')
-ylabel('Amplitude')
-xlabel('Time (ms)')
-show(plt)
+# plt = plot(timeArray, s1[0:len(timeArray)], color='k')
+# ylabel('Amplitude')
+# xlabel('Time (ms)')
+# show(plt)
 
-n = len(s1)
+n = len(s1)/2
 p = fft(s1)
+print p
 
 nUniquePts = ceil((n + 1)/2.0)
 
 
 p = p[0:nUniquePts]
+print p
 p = abs(p)
 p = p/float(n)
 p = p**2
