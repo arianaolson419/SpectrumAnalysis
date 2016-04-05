@@ -1,0 +1,37 @@
+uses wave to open the file
+
+gets characteristics of file: data_size, sample_rate, samplewidth, duration (data size/sample rate)
+
+reads frames in the data size and saves as a tuple
+
+closes the wav file
+
+unpacks binary sound data into array using struct.unpack
+	the size of the data may need to be cut off in order to work 		properly
+chooses fouriers per second, width, width index
+
+makes length to process the duration - 1 (integer)
+
+makes toal transforms (length*fps) and spacing (spread*sample rate)
+
+chooses a last point
+
+makes a frequency array (freq = rate/size)
+
+chooses an x axis
+
+get bandwidth function:
+
+frequency to index function: returns index 
+
+initializes an fft_averages list
+
+average fft bands function: averages frequencies in each band
+
+for a given chunk of time:
+	absolute value fft of chunk
+	multiplies this result by sqrt 2/sample size
+	averages fft bands using function mentioned previously
+	plots stuff
+
+for each frame, there is an fft averages list as long as the number of bands chosen. We could store all of these lists in another list for Paige to use.
