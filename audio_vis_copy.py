@@ -94,7 +94,7 @@ if __name__ == '__main__':
 			avg /= (hiBound - lowBound + 1)
 			fft_averages.append(avg)
 
-	for offset in range(0, total_transforms):
+	for offset in range(40,42):#(0, total_transforms):
 		start = int(offset * sample_size)
 		end = int((offset * sample_size) + sample_size -1)
 
@@ -115,3 +115,4 @@ if __name__ == '__main__':
 		plt.savefig(filename, dpi=100)
 		plt.close()
 	print "DONE!"
+print len(fft_averages), 'len'
