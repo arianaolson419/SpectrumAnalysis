@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>LED Visualizer</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"/>
+</head>
+<body>
+	
+	<h1>FFT LED Visualizer!</h1>
+	
+	<div class="wrapper">
+	<form method="POST" action="play_song.html">
+	<select style="width: 100px" name="song">
+		<option value="select">Select</option>
+		<option value="song1">Song 1</option>
+		<option value="song2">Song 2</option>
+		<option value="song3">Song 3</option>
+	</select>
+	<br><br><br>
+	<input type="submit" class="button button2" value="Start!">
+	</form>
+	</div>
+
+</body>
+</html>
