@@ -13,8 +13,16 @@ LED music visualiser.
 
 ## Dependencies
 [Flask](http://flask.pocoo.org/)
+
 [Ffmpeg](https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu)
+
 [Rpiws281x](https://github.com/richardghirst/rpi_ws281x)
+
 [NumPy](http://www.numpy.org/)
+
 [Matplotlib](http://matplotlib.org/users/installing.html)
+
+Possible: [libRosa](https://bmcfee.github.io/librosa/install.html)
+
+
 
