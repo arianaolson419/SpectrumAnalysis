@@ -2,14 +2,35 @@
 
 Authors: Ariana Olson, Harper Owen, Paige Pfenninger
 
-## Description:
+## Description
 
-LED music visualiser. 
+This program creates and LED music visualizer using Fast Fourier Transforms. 
 
 
 ## How To Use It
+The music visualizer comes with a few preloaded songs. To use these songs, follow the instructions below:
 
-[Connecting to LEDs](http://popoklopsi.github.io/RaspberryPi-LedStrip/#!/ws2812)
+1. Connect the hardware components to the Raspberry Pi (see instructions under Hardware Required)
+2. Run web app (page.py) in a local server from the Raspberry Pi
+3. Choose a song from the list
+4. Press start. The bar graph visualizer will play on the screen while the LEDs start to light up in time with the music.
+
+### Hardware Required
+Raspberry Pi and connecting cables
+WS2812 LEDs
+Power supply and power jack
+Level shifter
+Breadboard and appropriate jumper wires
+[Connecting LEDs](http://popoklopsi.github.io/RaspberryPi-LedStrip/#!/ws2812)
+
+### Creating visualization for a new song
+1. In the file AV_FFT.py, change the song_file to the directory of your song of choice
+2. Uncomment the Bar Graph creator section of the file and the CSV creator code(at the bottom of the page) 
+3. Run the make.sh file to compile the frames of the song you created into an animation and export the csv file to your LED program
+4. Open the AV_FFT2LED.py file and copy the csv data file directory to the song_data variable, run the file which has a pipe to the OurLEDCodeFile.py
+5. Do things on the web app
+6. I have no idea where we’re going next
+
 
 ## Dependencies
 [Flask](http://flask.pocoo.org/)
@@ -23,6 +44,8 @@ LED music visualiser.
 [Matplotlib](http://matplotlib.org/users/installing.html)
 
 Possible: [libRosa](https://bmcfee.github.io/librosa/install.html)
+
+
 
 
 
