@@ -28,8 +28,8 @@ Breadboard and appropriate jumper wires
 2. Uncomment the Bar Graph creator section of the file and the CSV creator code(at the bottom of the page) 
 3. Run the make.sh file to compile the frames of the song you created into an animation and export the csv file to your LED program
 4. Open the AV_FFT2LED.py file and copy the csv data file directory to the song_data variable, run the file which has a pipe to the OurLEDCodeFile.py
-5. Do things on the web app
-6. I have no idea where we’re going next
+5. Add the new song file to the list in the web app and put the name of the song in the index.html dropdown menu.
+6. You can now use this like all of the preloaded songs!
 
 
 ## Dependencies
