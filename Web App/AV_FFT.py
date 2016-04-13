@@ -19,7 +19,6 @@ import matplotlib.pyplot as plt
 
 # song_file = '/home/arianaolson/SpectrumAnalysis/02_White_Freckles.wav' 		# song_file must be a .wav file
 song_file = sys.argv[1]
-print sys.argv[0], 'title'
 song_name = str(os.path.splitext(song_file.split('/')[-1])[0])
 
 
