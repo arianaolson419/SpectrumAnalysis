@@ -17,7 +17,8 @@ matplotlib.use('Agg')
 from matplotlib import pylab
 import matplotlib.pyplot as plt
 
-song_file = '/home/harper/Documents/SoftDes/SpectrumAnalysis/Gooey_GlassAnimals.wav' 		# song_file must be a .wav file
+print 'testing...'
+song_file = '/home/arianaolson/SpectrumAnalysis/02_White_Freckles.wav' 		# song_file must be a .wav file
 song_name = str(os.path.splitext(song_file.split('/')[-1])[0])
 
 
@@ -96,27 +97,29 @@ if __name__ == '__main__':
 			avg /= (hiBound - lowBound + 1)
 			fft_averages.append(avg)
 
-	for offset in range(0, total_transforms):
-		start = int(offset * fourier_index)
-		end = int((offset * fourier_index) + fourier_index -1)
+	
+	# for offset in range(0, total_transforms):
+	# 	start = int(offset * fourier_index)
+	# 	end = int((offset * fourier_index) + fourier_index -1)
 
-		print "Processing sample %i of %i (%d seconds)" % (offset + 1, total_transforms, end/float(frame_rate))
-		sample_range = song_data[start:end]
+	# 	print "Processing sample %i of %i (%d seconds)" % (offset + 1, total_transforms, end/float(frame_rate))
+	# 	sample_range = song_data[start:end]
 
-		""" This is where we actually use FFT """
-		fft_data = abs(np.fft.fft(sample_range))
+		# """ This is where we actually use FFT """
+		# fft_data = abs(np.fft.fft(sample_range))
 
-		fft_data *= ((2**.5)/fourier_index)	# normalize it a second time to make numbers sensible
-		AvgFftBands(fft_data)
-		bar_levels = fft_averages
-		bar_levels = np.transpose(bar_levels)
-		all_fft_avgs.append(bar_levels)
+		# fft_data *= ((2**.5)/fourier_index)	# normalize it a second time to make numbers sensible
+		# AvgFftBands(fft_data)
+		# bar_levels = fft_averages
+		# bar_levels = np.transpose(bar_levels)
+		# all_fft_avgs.append(bar_levels)
 
-		""" Uncomment this if you want to make bar graphs """
+		# """ Uncomment this if you want to make bar graphs """
 		# x_axis = range(0,12)
 		# y_axis = fft_averages
 		# width = 0.35
 		# p1 = plt.bar(x_axis, y_axis, width, color='r')
+		# print next
 
 		# filename = str('frame_%05d' % offset) + '.png'
 		# plt.savefig(filename, dpi=100)
@@ -124,7 +127,7 @@ if __name__ == '__main__':
 
 
 	""" Uncomment this if you want to save FFT Data to a CSV """
-	filename = str(song_name) + 'Data' + '.csv'
-	np.savetxt(filename, all_fft_avgs, delimiter=",")
+	# filename = str(song_name) + 'Data' + '.csv'
+	# np.savetxt(filename, all_fft_avgs, delimiter=",")
 
 	print "Done!"
