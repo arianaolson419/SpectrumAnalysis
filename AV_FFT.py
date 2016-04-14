@@ -60,6 +60,9 @@ if __name__ == '__main__':
 	freq = frame_rate / fourier_index * np.arange(fourier_index)
 
 	band_width = 1.0 / fourier_width			# determine band width
+	
+	fft_averages = [] 							# initialize an array for fft averages
+	all_fft_avgs = [] 							# initialize an array to contain all ffts over all frames
 
 
 	""" Convert Frequency (input) to Index (output) """
@@ -74,8 +77,7 @@ if __name__ == '__main__':
 		index = round(fourier_index * fraction)	# converted frequency to index
 		return index
 
-	fft_averages = [] 							# initialize an array for fft averages
-	all_fft_avgs = [] 							# initialize an array to contain all ffts over all frames
+
 
 	""" Average the frequencies in each band """
 	def AvgFftBands(fft_array):
