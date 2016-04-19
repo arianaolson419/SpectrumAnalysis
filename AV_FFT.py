@@ -18,7 +18,7 @@ from matplotlib import pylab
 import matplotlib.pyplot as plt
 
 print 'testing...'
-song_file = '/home/arianaolson/SpectrumAnalysis/02_White_Freckles.wav' 		# song_file must be a .wav file
+song_file = '02_White_Freckles.wav' 		# song_file must be a .wav file
 song_name = str(os.path.splitext(song_file.split('/')[-1])[0])
 
 

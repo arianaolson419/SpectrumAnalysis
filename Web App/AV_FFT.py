@@ -17,8 +17,8 @@ matplotlib.use('Agg')
 from matplotlib import pylab
 import matplotlib.pyplot as plt
 
-# song_file = '/home/arianaolson/SpectrumAnalysis/02_White_Freckles.wav' 		# song_file must be a .wav file
-song_file = sys.argv[1]
+song_file = '/home/arianaolson/SpectrumAnalysis/02_White_Freckles.wav' 		# song_file must be a .wav file
+# song_file = sys.argv[1]
 song_name = str(os.path.splitext(song_file.split('/')[-1])[0])
 
 
@@ -102,7 +102,7 @@ if __name__ == '__main__':
 		start = int(offset * fourier_index)
 		end = int((offset * fourier_index) + fourier_index -1)
 
-		print "Processing sample %i of %i (%d seconds)" % (offset + 1, total_transforms, end/float(frame_rate))
+		# print "Processing sample %i of %i (%d seconds)" % (offset + 1, total_transforms, end/float(frame_rate))
 		sample_range = song_data[start:end]
 
 		""" This is where we actually use FFT """
