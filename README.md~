@@ -4,7 +4,7 @@ Authors: Ariana Olson, Harper Owen, Paige Pfenninger
 
 ## Description
 
-This program creates and LED music visualizer using Fast Fourier Transforms. 
+This program creates and LED music visualizer using Fast Fourier Transforms. An LED array controlled by a Raspberry Pi lights up in time to music, displaying the FFT bars.
 
 
 ## How To Use It

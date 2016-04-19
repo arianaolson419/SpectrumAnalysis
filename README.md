@@ -43,6 +43,8 @@ Breadboard and appropriate jumper wires
 
 [Matplotlib](http://matplotlib.org/users/installing.html)
 
+[Pygame](http://www.pygame.org/download.shtml)
+
 Possible: [libRosa](https://bmcfee.github.io/librosa/install.html)
 
 
