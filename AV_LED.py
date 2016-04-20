@@ -84,7 +84,6 @@ if __name__ == '__main__':
 
 	print ('Press Ctrl-C to quit.')
 	while True:
-
-	# Begin Animations
-	AudioVisualizer(strip, Color(127, 0, 0), bar_array, LED_COUNT)
+		# Begin Animations
+		AudioVisualizer(strip, Color(127, 0, 0), bar_array, LED_COUNT)
 
