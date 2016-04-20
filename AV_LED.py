@@ -26,51 +26,51 @@ def AudioVisualizer(strip, color, led_array, LED_COUNT):
 		frame = led_array[k]
 		for i in frame:
 			if i == 0:
-				for j in range(frame[0]-1):
+				for j in range(int(frame[0])-1):
 					strip.setPixelColor(j+1, color)
 					strip.show()
 			elif i == 1:
-				for j in range(frame[1]-1):
+				for j in range(int(frame[1])-1):
 					strip.setPixelColor(2*q-j, color)
 					strip.show()
 			elif i == 2:
-				for j in range(frame[2]-1):
+				for j in range(int(frame[2])-1):
 					strip.setPixelColor(2*q+1+j, color)
 					strip.show()
 			elif i == 3:
-				for j in range(frame[3]-1):
+				for j in range(int(frame[3])-1):
 					strip.setPixelColor(4*q-j, color)
 					strip.show()
 			elif i == 4:
-				for j in range(frame[4]-1):
+				for j in range(int(frame[4])-1):
 					strip.setPixelColor(4*q+1+j, color)
 					strip.show
 			elif i == 5:
-				for j in range(frame[5]-1):
+				for j in range(int(frame[5])-1):
 					strip.setPixelColor(6*q-j, color)
 					strip.show()
 			elif i == 6:
-				for j in range(frame[6]-1):
+				for j in range(int(frame[6])-1):
 					strip.setPixelColor(6*q+1+j, color)
 					strip.show()
 			elif i == 7:
-				for j in range(frame[7]-1):
+				for j in range(int(frame[7])-1):
 					strip.setPixelColor(8*q-j, color)
 					strip.show()
 			elif i == 8:
-				for j in range(frame[8]-1):
+				for j in range(int(frame[8])-1):
 					strip.setPixelColor(8*q+1+j, color)
 					strip.show()
 			elif i == 9:
-				for j in range(frame[9]-1):
+				for j in range(int(frame[9])-1):
 					strip.setPixelColor(10*q-j, color)
 					strip.show()
 			elif i == 10:
-				for j in range(frame[10]-1):
+				for j in range(int(frame[10])-1):
 					strip.setPixelColor(10*q+1+j, color)
 					strip.show()
 			elif i == 11:
-				for j in range(frame[11]-1):
+				for j in range(int(frame[11])-1):
 					strip.setPixelColor(12*q-j, color)
 					strip.show
 		time.sleep(1/fps)
