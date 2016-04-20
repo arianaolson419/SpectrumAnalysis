@@ -69,10 +69,10 @@ def AudioVisualizer(strip, color, led_array, LED_COUNT):
 				for j in range(int(frame[10])-1):
 					strip.setPixelColor(10*q+1+j, color)
 					strip.show()
-			elif i == 11:
-				for j in range(int(frame[11])-1):
-					strip.setPixelColor(12*q-j, color)
-					strip.show
+			# elif i == 11:
+			# 	for j in range(int(frame[11])-1):
+			# 		strip.setPixelColor(12*q-j, color)
+			# 		strip.show
 		time.sleep(1/fps)
 
 
