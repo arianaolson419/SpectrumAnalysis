@@ -19,7 +19,8 @@ bar_array = np.genfromtxt(song_dir, delimiter=',', dtype=None, names=True)
 
 
 """ Run LEDs """
-def AudioVisualizer(strip, color, led_array, LED_COUNT):fps = 24
+def AudioVisualizer(strip, color, led_array, LED_COUNT):
+	fps = 24
 	q = LED_COUNT * 2 / 12
 	for frame in range(len(led_array)-1):
 		for i in frame:
