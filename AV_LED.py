@@ -9,7 +9,7 @@ LED_COUNT      = 150     # Number of LED pixels.
 LED_PIN        = 18      # GPIO pin connected to the pixels (must support PWM!).
 LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
 LED_DMA        = 5       # DMA channel to use for generating signal (try 5)
-LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
+LED_BRIGHTNESS = 170     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
 
 
@@ -21,7 +21,7 @@ bar_array = np.genfromtxt(song_dir, delimiter=',', dtype=None, names=True)
 """ Run LEDs """
 def AudioVisualizer(strip, color, led_array, LED_COUNT):
 	fps = 24
-	q = LED_COUNT * 2 / 12
+	q = LED_COUNT  / 12
 	for k in range(len(led_array)):
 		frame = led_array[k]
 		for i in frame:
