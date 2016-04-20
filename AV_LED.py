@@ -23,7 +23,7 @@ def AudioVisualizer(strip, color, led_array, LED_COUNT):
 	fps = 24
 	q = LED_COUNT * 2 / 12
 	for frame in range(len(led_array)-1):
-		for i in frame:
+		for i in range(frame):
 			if i == 0:
 				for j in range(i[0]-1):
 					strip.setPixelColor(j+1, color)
