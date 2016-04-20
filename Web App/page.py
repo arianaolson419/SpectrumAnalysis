@@ -1,10 +1,21 @@
+'''
+MUSIC VISULAIZER WEB APP
+
+a simple web app that allows the user to choose a song from a list 
+to initialize the LED visualizer and play the song when the 
+"Start!" button is pressed
+
+team: SpectrumAnalysis1 (Ariana Olson, Harper Owen, Paige Pfenninger)
+author: Ariana Olson
+
+'''
 from flask import *
 import os, sys
 import playsong
 app = Flask(__name__)
 
-#keys correspond to the choices in the dropdown
-#menu. first value is the title, second is the file location
+#keys correspond to the choices in the dropdown menu.
+#first value is the title, second is the file location.
 songs = {'song1': ['White Freckles','audio/White_Freckles.wav'],	
 	'song2': ['Gooey', 'audio/Gooey.wav'],
 	'song3': ['Sine Wave', 'audio/440_sine.wav']}
@@ -15,11 +26,10 @@ def selection_page():
 	return render_template('index.html') #displays the button page
 @app.route('/play_song', methods=['GET', 'POST'])
 def test(song=None):
-	'''displays the page letting the user know what song is being played and visualized (play_song.html). 
+	'''displays the page letting the user know what song is being played (play_song.html). 
 	Also runs a python script with arguments on the computer'''
-	song = request.form['song'] 
-	print songs[song][1]
-	playsong.playit(songs[song][1])
+	song = request.form['song'] #determines which song was selected
+	playsong.playit(songs[song][1]) #plays the song
 	return render_template('play_song.html', song=songs[song][0]) #displays the play_song page
 
 if __name__ == '__main__':
