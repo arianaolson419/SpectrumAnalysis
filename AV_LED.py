@@ -14,7 +14,7 @@ LED_INVERT     = False   # True to invert the signal (when using NPN transistor 
 
 
 """ Import FFT File """
-song_dir = "/home/harper/SpectrumAnalysis/GooeyData.csv"
+song_dir = "GooeyData.csv"
 bar_array = np.genfromtxt(song_dir, delimiter=',', dtype=None, names=True)
 
 
