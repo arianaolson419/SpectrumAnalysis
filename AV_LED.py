@@ -1,6 +1,7 @@
 import time
 import numpy as np
 from neopixel import *
+from math import floor
 
 """ Program to Control LEDs """
 
