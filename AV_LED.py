@@ -1,5 +1,6 @@
 import time
 import numpy as np
+from neopixel import *
 
 """ Program to Control LEDs """
 
@@ -13,14 +14,14 @@ LED_INVERT     = False   # True to invert the signal (when using NPN transistor 
 
 
 """ Import FFT File """
-song_dir = "/home/harper/SpectrumAnalysis/GooeyData.csv"
+song_dir = "GooeyData.csv"
 bar_array = np.genfromtxt(song_dir, delimiter=',', dtype=None, names=True)
 
 
 """ Run LEDs """
 def AudioVisualizer(strip, color, led_array, LED_COUNT):
- 	fps = 24
- 	q = LED_COUNT * 2 / 12
+	fps = 24
+	q = LED_COUNT * 2 / 12
 	for frame in range(len(led_array)-1):
 		for i in frame:
 			if i == 0:
@@ -83,7 +84,6 @@ if __name__ == '__main__':
 
 	print ('Press Ctrl-C to quit.')
 	while True:
-
-	# Begin Animations
-	AudioVisualizer(strip, Color(127, 0, 0), bar_array, LED_COUNT)
+		# Begin Animations
+		AudioVisualizer(strip, Color(127, 0, 0), bar_array, LED_COUNT)
 
