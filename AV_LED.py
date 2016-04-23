@@ -23,60 +23,53 @@ bar_array = np.genfromtxt(song_dir, delimiter=',', dtype=None, names=True)
 def AudioVisualizer(strip, led_array, LED_COUNT):
 	fps = 24
 	q = int(floor(LED_COUNT  / 12))
-	old_num_pixels = 0
+	for i in range LED_COUNT:
+		color = Color(127, 127, 0)
+		strip.setPixelColor(i, color)
+	strip.show()
 	for k in range(len(led_array)):
 		frame = led_array[k]
 		for i in frame:
 			if i == 0:
 				for j in range(int(frame[0])-1):
 					color = Color(127, 0, 0)
-					strip.setPixelColor(j+1, color)
-					# strip.show() 
+					strip.setPixelColor(j+1, color) 
 			elif i == 1:
 				for j in range(int(frame[1])-1):
 					color = Color(0, 127, 0)
 					strip.setPixelColor(2*q-j, color)
-					# strip.show()
 			elif i == 2:
 				for j in range(int(frame[2])-1):
 					color = Color(0, 0, 127)
 					strip.setPixelColor(2*q+1+j, color)
-					# strip.show()
 			elif i == 3:
 				for j in range(int(frame[3])-1):
 					color = Color(127, 0, 0)
 					strip.setPixelColor(4*q-j, color)
-					# strip.show()
 			elif i == 4:
 				for j in range(int(frame[4])-1):
 					color = Color(0, 127, 0)
 					strip.setPixelColor(4*q+1+j, color)
-					# strip.show
 			elif i == 5:
 				for j in range(int(frame[5])-1):
 					color = Color(0, 0, 127)
 					strip.setPixelColor(6*q-j, color)
-					# strip.show()
 			elif i == 6:
 				for j in range(int(frame[6])-1):
 					color = Color(127, 0, 0)
 					strip.setPixelColor(6*q+1+j, color)
-					# strip.show()
 			elif i == 7:
 				for j in range(int(frame[7])-1):
 					color = Color(0, 127, 0)
 					strip.setPixelColor(8*q-j, color)
-					# strip.show()
 			elif i == 8:
 				for j in range(int(frame[8])-1):
 					color = Color(0, 0, 127)
 					strip.setPixelColor(8*q+1+j, color)
-					# strip.show()
 			elif i == 9:
 				for j in range(int(frame[9])-1):
 					color = Color(127, 0, 0)
 					strip.setPixelColor(10*q-j, color)
-					# strip.show()
 			elif i == 10:
 				for j in range(int(frame[10])-1):
 					color = Color(0, 127, 0)
