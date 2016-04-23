@@ -24,7 +24,7 @@ def AudioVisualizer(strip, led_array, LED_COUNT):
 	fps = 24
 	q = int(floor(LED_COUNT  / 12))
 	for i in range(LED_COUNT):
-		color = Color(255, 255, 0)
+		color = Color(0, 255, 255)
 		strip.setPixelColor(i, color)
 	strip.show()
 	for k in range(len(led_array)):
