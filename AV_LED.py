@@ -94,5 +94,5 @@ if __name__ == '__main__':
 	while True:
 		# Begin Animations
 		AudioVisualizer(strip, bar_array, LED_COUNT)
-		color = blah
+
 
