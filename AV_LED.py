@@ -19,12 +19,13 @@ song_dir = "GooeyData.csv"
 bar_array = np.genfromtxt(song_dir, delimiter=',', dtype=None, names=True)
 
 
+# Color of the lEDs goes Green, Blue, Red 
 """ Run LEDs """
 def AudioVisualizer(strip, led_array, LED_COUNT):
 	fps = 24
 	q = int(floor(LED_COUNT  / 12))
 	for i in range(LED_COUNT):
-		color = Color(0, 255, 255)
+		color = Color(0, 170, 100)
 		strip.setPixelColor(i, color)
 	strip.show()
 	for k in range(len(led_array)):
