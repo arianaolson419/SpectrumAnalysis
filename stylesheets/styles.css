@@ -193,6 +193,11 @@ header ul {
   padding-bottom: 1px;
   padding-left: 5px
 }
+
+.contributors {
+  padding-left: 20px;
+  list-style:none;
+}
 header li {
   width:89px;
   float:left;
