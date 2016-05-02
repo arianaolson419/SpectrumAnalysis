@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <title>SpectrumAnalysis</title>
+
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+
+        <h1><a href='index.html' class="home">SpectrumAnalysis</a></h1>
+
+        <p>Final SoftDes Project</p>
+
+        <p class="view"><a href="https://github.com/arianaolson419/SpectrumAnalysis">View the Project on GitHub <small>arianaolson419/SpectrumAnalysis</small></a></p>
+
+        <p class="view"><a href="index.html">About</a></p>
+          <ul class="sublinks" style='text-align: left'>
+            <li class='sublinks'>
+            <a href="fft_info.html">What is FFT?</a>
+            </li>
+            <li class='sublinks'>
+            <a href="our_story.html">Our Story</a>
+            </li>
+          </ul>
+
+        <p class="view" style="padding-top: 20px"><a href="implementation.html">Implementation</a></p>
+
+        <p class="view"><a href="README.html">README</a></p>
+
+        <p class="view"><a href="results.html">Results</a></p>
+
+
+        <ul style="text-align: center">
+          <li><a href="https://github.com/arianaolson419/SpectrumAnalysis/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/arianaolson419/SpectrumAnalysis/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/arianaolson419/SpectrumAnalysis">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+              <h1>
+<a id="music-visualizer" class="anchor" href="#music-visualizer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>README</h1>
+
+<h2>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+
+<p>This program creates and LED music visualizer using Fast Fourier Transforms. An LED array controlled by a Raspberry Pi lights up in time to music, displaying the FFT bars.</p>
+
+<h2>
+<a id="music-visualizer" class="anchor" href="#music-visualizer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to Use It</h2>
+
+<p>The music visualizer comes with a few preloaded songs. To use these songs, follow the instructions below:</p>
+
+<ol>
+<li>Connect the hardware components to the Raspberry Pi (see instructions under Hardware Required)</li>
+<li>Run web app (page.py) in a local server from the Raspberry Pi</li>
+<li>Choose a song from the list</li>
+<li>Press start. The bar graph visualizer will play on the screen while the LEDs start to light up in time with the music.</li>
+</ol>
+
+<h3>
+<a id="hardware-required" class="anchor" href="#hardware-required" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hardware Required</h3>
+
+<p>Raspberry Pi and connecting cables
+WS2812 LEDs
+Power supply and power jack
+Level shifter
+Breadboard and appropriate jumper wires
+<a href="http://popoklopsi.github.io/RaspberryPi-LedStrip/#!/ws2812">Connecting LEDs</a></p>
+
+<h3>
+<a id="creating-visualization-for-a-new-song" class="anchor" href="#creating-visualization-for-a-new-song" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating visualization for a new song</h3>
+
+<ol>
+<li>In the file AV_FFT.py, change the song_file to the directory of your song of choice</li>
+<li>Uncomment the Bar Graph creator section of the file and the CSV creator code(at the bottom of the page) </li>
+<li>Run the make.sh file to compile the frames of the song you created into an animation and export the csv file to your LED program</li>
+<li>Open the AV_FFT2LED.py file and copy the csv data file directory to the song_data variable, run the file which has a pipe to the OurLEDCodeFile.py</li>
+<li>Add the new song file to the list in the web app and put the name of the song in the index.html dropdown menu.</li>
+<li>You can now use this like all of the preloaded songs!</li>
+</ol>
+
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<p><a href="http://flask.pocoo.org/">Flask</a></p>
+
+<p><a href="https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu">Ffmpeg</a></p>
+
+<p><a href="https://github.com/richardghirst/rpi_ws281x">Rpiws281x</a></p>
+
+<p><a href="http://www.numpy.org/">NumPy</a></p>
+
+<p><a href="http://matplotlib.org/users/installing.html">Matplotlib</a></p>
+
+<p><a href="http://www.pygame.org/download.shtml">Pygame</a></p>
+
+<p>Possible: <a href="https://bmcfee.github.io/librosa/install.html">libRosa</a></p>
+
+      </section>
+       <footer>
+        <p>This project is maintained by <a href="https://github.com/arianaolson419">arianaolson419</a></p>
+        <p>Contributors
+        <ul class="contributors">
+          <li>Ariana Olson</li>
+          <li>Harper Owen</li>
+          <li>Paige Pfenninger</li>
+        </ul>
+        Special thanks to Carl Moser and Ian Paul
+        </p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    </div>
+      </body>
+      </html>
