@@ -65,6 +65,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color:#222;
   margin:0 0 20px;
+  font-size:28px;
+}
+
+.home{
+  color:#222;
+  margin:0 0 20px;
 }
 
 p, ul, ol, table, pre, dl {
@@ -109,6 +115,7 @@ a:hover small {
 
 .wrapper {
   width:860px;
+  height:auto;
   margin:0 auto;
 }
 
@@ -164,6 +171,10 @@ header {
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
+header p {
+  font-weight:700;
+}
+
 header ul {
   list-style:none;
   height:40px;
@@ -174,6 +185,14 @@ header ul {
   width:270px;
 }
 
+.sublinks{
+  border:none;
+  background-color: #fff;
+  float:none;
+  padding-top:1px;
+  padding-bottom: 1px;
+  padding-left: 5px
+}
 header li {
   width:89px;
   float:left;
@@ -194,7 +213,7 @@ header ul a {
   font-size:11px;
   color:#999;
   display:block;
-  text-align:center;
+  /*text-align:center;*/
   padding-top:6px;
   height:34px;
 }
@@ -293,6 +312,7 @@ footer {
   }
 
   header ul, header p.view {
+    font-size:20pt;
     position:static;
   }
 
