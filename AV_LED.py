@@ -39,7 +39,7 @@ def AudioVisualizer(song_dir, strip, LED_COUNT):
 		pix_array = np.zeros((1, 150))
 		frame = bar_array[k] #bar_array[k] is the frequency values
 		for i in frame:
-			for j in range(int(frame[i])-1):
+			for j in range(int(frame[i])):
 				ind1 = q*i+j
 				ind2 = q*i + q -j -1
 				pix_array[0][ind1] = 1
