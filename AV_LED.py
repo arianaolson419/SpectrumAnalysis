@@ -48,7 +48,7 @@ def AudioVisualizer(song_dir, strip, LED_COUNT):
 			if pix_array[i] == True:
 				color = roygbiv[i/q]
 				strip.setPixelColor(pix+1, color)
-			if pix_array[i] == True:
+			else:
 				color = Color(255, 255, 255)
 				strip.setPixelColor(pix + 1, color)
 
