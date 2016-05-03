@@ -14,6 +14,17 @@ LED_BRIGHTNESS = 50    # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
 song_dir = "GooeyData.csv"
 # Color of the lEDs goes Green, Blue, Red 
+red = Color(0, 0, 255)
+orange = Color(0, 127, 255)
+yellow = Color(0, 255, 255)
+green = Color(0, 255, 0)
+blue = Color(255, 0, 0)
+indigo = Color(130, 0, 75)
+violet = Color(143, 0, 255)
+
+roygbiv = [red, orange, \
+	yellow, green, blue, indigo, violet]*2
+
 
 """ Run LEDs """
 def AudioVisualizer(song_dir, strip, LED_COUNT):
@@ -35,25 +46,25 @@ def AudioVisualizer(song_dir, strip, LED_COUNT):
 				pix_array[ind2] = True
 		for i in range(len(pix_array)):
 			if pix_array[i] == False:
-				color = Color(255, 255, 255) 
+				color = roygbiv[i/q]
 				strip.setPixelColor(pix+1, color)
 			if pix_array[i] == True:
 
 
-		#strip.show()	
-		time.sleep(1/fps)
+		strip.show()	
+		time.sleep(1/(fps*1000))
 
 
 # # Main program logic follows:
 if __name__ == '__main__':
 	AudioVisualizer(song_dir, strip, LED_COUNT)
 
-# 	# Create NeoPixel object with appropriate configuration.
-# 	# strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
-# 	# Intialize the library (must be called once before other functions).
-# 	# strip.begin()
+	# Create NeoPixel object with appropriate configuration.
+	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
+	# Intialize the library (must be called once before other functions).
+	strip.begin()
 
-# 	print ('Press Ctrl-C to quit.')
-# 	while True:
-# 		# Begin Animations
-# 		# AudioVisualizer(strip, bar_array, LED_COUNT)
+	print ('Press Ctrl-C to quit.')
+	while True:
+		# Begin Animations
+		AudioVisualizer(strip, bar_array, LED_COUNT)
