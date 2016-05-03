@@ -36,16 +36,16 @@ def AudioVisualizer(song_dir, strip, LED_COUNT):
 		strip.setPixelColor(i, color) #background color
 	strip.show()
 	for k in range(len(bar_array)): #k is the number of the frame
-		pix_array = np.zeros((1, 150), dtype=bool)
+		pix_array = np.zeros((1, 150))
 		frame = bar_array[k] #bar_array[k] is the frequency values
 		for i in frame:
 			for j in range(int(frame[i])-1):
 				ind1 = q*i+j
 				ind2 = q*i + q -j -1
-				pix_array[ind1] = True
-				pix_array[ind2] = True
+				pix_array[ind1] = 1
+				pix_array[ind2] = 1
 		for i in range(len(pix_array)):
-			if pix_array[i] == True:
+			if pix_array[i] == 1:
 				color = roygbiv[i/q]
 				strip.setPixelColor(pix+1, color)
 			else:
