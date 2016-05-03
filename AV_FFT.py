@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 import subprocess as sp
 
 # song_file must be a .wav file
-song_file = '/home/harper/SpectrumAnalysis/Gooey.wav'
+song_file = 'Web App/audio/Gooey.wav'
 song_name = str(os.path.splitext(song_file.split('/')[-1])[0])
 
 
@@ -89,7 +89,7 @@ def FreqToIndex(f):
 """ Average the frequencies in each band """
 def AvgFftBands(fft_array):
 	# num_bands based on frequency bands (12 notes in 1 octave)
-	num_bands = 12
+	num_bands = 15
 	# reinitialize an empty fft_averages list
 	del fft_averages[:]
 	for band in range(0, num_bands):
@@ -113,13 +113,14 @@ def RemapFftInterval(fft_array):
 	mean = np.mean(fft_array)
 	stnd = np.std(fft_array)
 	output_max = mean + stnd*3
+	leds = 5
 	for i in range(len(fft_array)-1):
-		ratio = output_max / 25
+		ratio = output_max / leds
 		new_val = np.ceil((fft_array[i] / ratio))
-		if new_val >= 25:
-			new_val = 25
+		if new_val >= leds:
+			new_val = leds
 			bar_vals.append(new_val)
-		elif 1 <= new_val < 25: 
+		elif 1 <= new_val < leds: 
 			bar_vals.append(new_val)
 		else:
 			bar_vals.append(0)
