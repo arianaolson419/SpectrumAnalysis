@@ -12,79 +12,53 @@ LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
 LED_DMA        = 5       # DMA channel to use for generating signal (try 5)
 LED_BRIGHTNESS = 50    # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
-
-
-""" Import FFT File """
 song_dir = "GooeyData.csv"
-bar_array = np.genfromtxt(song_dir, delimiter=',', dtype=None, names=True)
-
-
 # Color of the lEDs goes Green, Blue, Red 
+red = Color(0, 0, 255)
+orange = Color(0, 127, 255)
+yellow = Color(0, 255, 255)
+green = Color(0, 255, 0)
+blue = Color(255, 0, 0)
+indigo = Color(130, 0, 75)
+violet = Color(143, 0, 255)
+
+roygbiv = [red, orange, \
+	yellow, green, blue, indigo, violet]*2
+
+
 """ Run LEDs """
-def AudioVisualizer(strip, led_array, LED_COUNT):
+def AudioVisualizer(song_dir, strip, LED_COUNT):
+	bar_array = np.genfromtxt(song_dir, delimiter=',', dtype=None, names=True)
 	fps = 24
-	q = int(floor(LED_COUNT  / 12))
+	q = int(floor(LED_COUNT  / 15))
 	for i in range(LED_COUNT):
 		color = Color(0, 170, 100)
-		strip.setPixelColor(i, color)
+		strip.setPixelColor(i, color) #background color
 	strip.show()
-	for k in range(len(led_array)):
-		frame = led_array[k]
+	for k in range(len(bar_array)): #k is the number of the frame
+		pix_array = np.zeros((1, 150), dtype=bool)
+		frame = bar_array[k] #bar_array[k] is the frequency values
 		for i in frame:
-			if i == 0:
-				for j in range(int(frame[0])-1):
-					color = Color(127, 0, 0)
-					strip.setPixelColor(j+1, color) 
-			elif i == 1:
-				for j in range(int(frame[1])-1):
-					color = Color(0, 127, 0)
-					strip.setPixelColor(2*q-j, color)
-			elif i == 2:
-				for j in range(int(frame[2])-1):
-					color = Color(0, 0, 127)
-					strip.setPixelColor(2*q+1+j, color)
-			elif i == 3:
-				for j in range(int(frame[3])-1):
-					color = Color(127, 0, 0)
-					strip.setPixelColor(4*q-j, color)
-			elif i == 4:
-				for j in range(int(frame[4])-1):
-					color = Color(0, 127, 0)
-					strip.setPixelColor(4*q+1+j, color)
-			elif i == 5:
-				for j in range(int(frame[5])-1):
-					color = Color(0, 0, 127)
-					strip.setPixelColor(6*q-j, color)
-			elif i == 6:
-				for j in range(int(frame[6])-1):
-					color = Color(127, 0, 0)
-					strip.setPixelColor(6*q+1+j, color)
-			elif i == 7:
-				for j in range(int(frame[7])-1):
-					color = Color(0, 127, 0)
-					strip.setPixelColor(8*q-j, color)
-			elif i == 8:
-				for j in range(int(frame[8])-1):
-					color = Color(0, 0, 127)
-					strip.setPixelColor(8*q+1+j, color)
-			elif i == 9:
-				for j in range(int(frame[9])-1):
-					color = Color(127, 0, 0)
-					strip.setPixelColor(10*q-j, color)
-			elif i == 10:
-				for j in range(int(frame[10])-1):
-					color = Color(0, 127, 0)
-					strip.setPixelColor(10*q+1+j, color)
-			strip.show()
-		# 	elif i == 11:
-		# 		for j in range(int(frame[11])-1):
-		# 			strip.setPixelColor(12*q-j, color)
-		# 			strip.show
-		# time.sleep(1/fps)
+			for j in range(int(frame[i])-1):
+				ind1 = q*i+j
+				ind2 = q*i + q -j -1
+				pix_array[ind1] = True
+				pix_array[ind2] = True
+		for i in range(len(pix_array)):
+			if pix_array[i] == False:
+				color = roygbiv[i/q]
+				strip.setPixelColor(pix+1, color)
+			if pix_array[i] == True:
 
 
-# Main program logic follows:
+		strip.show()	
+		time.sleep(1/(fps*1000))
+
+
+# # Main program logic follows:
 if __name__ == '__main__':
+	AudioVisualizer(song_dir, strip, LED_COUNT)
+
 	# Create NeoPixel object with appropriate configuration.
 	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
 	# Intialize the library (must be called once before other functions).
@@ -94,5 +68,3 @@ if __name__ == '__main__':
 	while True:
 		# Begin Animations
 		AudioVisualizer(strip, bar_array, LED_COUNT)
-
-
