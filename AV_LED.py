@@ -49,11 +49,11 @@ def AudioVisualizer(song_dir, strip, LED_COUNT):
 				color = roygbiv[i/q]
 				strip.setPixelColor(i+1, color)
 			else:
-				color = Color(255, 255, 255)
+				color = Color(0, 0, 0)
 				strip.setPixelColor(i + 1, color)
 
 		strip.show()	
-		time.sleep(1/(fps*1000))
+		time.sleep(1/(fps*100))
 
 
 # # Main program logic follows:
