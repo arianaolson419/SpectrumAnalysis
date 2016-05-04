@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 import subprocess as sp
 
 # song_file must be a .wav file
-song_file = 'Web App/audio/Gooey.wav'
+song_file = 'Web App/audio/440_sine.wav'
 song_name = str(os.path.splitext(song_file.split('/')[-1])[0])
 
 
