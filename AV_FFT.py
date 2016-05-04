@@ -52,7 +52,6 @@ fourier_rate = 24
 fourier_width = 1.0/fourier_rate
 # index is width times frame frequency
 fourier_index = fourier_width * float(frame_rate)
-
 # determines total number of fourier transforms by multiplying the song length by the fourier rate
 total_transforms = int(round(song_length*fourier_rate))
 # determines which points at which discretize fourier transform
@@ -85,11 +84,10 @@ def FreqToIndex(f):
 	return index
 
 
-
 """ Average the frequencies in each band """
 def AvgFftBands(fft_array):
 	# num_bands based on frequency bands (12 notes in 1 octave)
-	num_bands = 15
+	num_bands = 14
 	# reinitialize an empty fft_averages list
 	del fft_averages[:]
 	for band in range(0, num_bands):
@@ -108,11 +106,12 @@ def AvgFftBands(fft_array):
 		avg /= (hiBound - lowBound + 1)
 		fft_averages.append(avg)
 
+
 def RemapFftInterval(fft_array):
 	bar_vals = []
 	mean = np.mean(fft_array)
 	stnd = np.std(fft_array)
-	output_max = mean + stnd*3
+	output_max = mean + stnd
 	leds = 5
 	for i in range(len(fft_array)-1):
 		ratio = output_max / leds
@@ -142,22 +141,36 @@ if __name__ == '__main__':
 		bar_levels = np.transpose(bar_levels)
 		all_fft_avgs.append(bar_levels)
 
-		# """ Uncomment this if you want to make bar graphs """
-		# x_axis = range(0,12)
-		# y_axis = fft_averages
-		# width = 0.35
-		# p1 = plt.bar(x_axis, y_axis, width, color='r')
-		# print next
+	depth = len(all_fft_avgs)
+	new_fft_avgs = np.empty((depth, 14))
 
-		# filename = str('frame_%05d' % offset) + '.png'
-		# plt.savefig(filename, dpi=100)
-		# plt.close()
+	for i in range(depth):
+		bar = all_fft_avgs[i]
+		for j in range(3,10):
+			new_fft_avgs[i,(j-3)*2] = bar[j]
+			if bar[j] >= 1:
+				new_fft_avgs[i,((j-3)*2)-1] = bar[j] -1
+			else:
+				new_fft_avgs[i,((j-3)*2)-1] = 0
 
-		# command1 = ['/usr/bin/ffmpeg' '-f' 'image2' '-r' '24' '-i' 'frame_%05d.png' '-vcodec mpeg4' '-y' 'movie.mp4']
-		# pipe = sp.Popen(command1, stdin=sp.PIPE,stdout=sp.PIPE, stderr=sp.PIPE)
+
+
+	""" Uncomment this if you want to make bar graphs """
+	# 	# x_axis = range(0,12)
+	# 	# y_axis = fft_averages
+	# 	# width = 0.35
+	# 	# p1 = plt.bar(x_axis, y_axis, width, color='r')
+	# 	# print next
+
+	# 	# filename = str('frame_%05d' % offset) + '.png'
+	# 	# plt.savefig(filename, dpi=100)
+	# 	# plt.close()
+
+	# 	# command1 = ['/usr/bin/ffmpeg' '-f' 'image2' '-r' '24' '-i' 'frame_%05d.png' '-vcodec mpeg4' '-y' 'movie.mp4']
+	# 	# pipe = sp.Popen(command1, stdin=sp.PIPE,stdout=sp.PIPE, stderr=sp.PIPE)
 
 	""" Uncomment this if you want to save FFT Data to a CSV """
 	filename = str(song_name) + 'Data' + '.csv'
-	np.savetxt(filename, all_fft_avgs, delimiter=",")
+	np.savetxt(filename, new_fft_avgs, delimiter=",")
 
 	print "Done!"
