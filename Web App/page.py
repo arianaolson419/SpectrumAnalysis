@@ -12,13 +12,14 @@ author: Ariana Olson
 from flask import *
 import os, sys
 import playsong
+import AV_LED
 app = Flask(__name__)
 
 #keys correspond to the choices in the dropdown menu.
 #first value is the title, second is the file location.
-songs = {'song1': ['White Freckles','audio/White_Freckles.wav'],	
-	'song2': ['Gooey', 'audio/Gooey.wav'],
-	'song3': ['Sine Wave', 'audio/440_sine.wav']}
+songs = {'song1': ['White Freckles','audio/White_Freckles.wav', '../White_FrecklesData.csv'],	
+	'song2': ['Gooey', 'audio/Gooey.wav', '../GooeyData.csv'],
+	'song3': ['Sine Wave', 'audio/440_sine.wav', '../440_sineData.csv']}
 
 @app.route('/')
 def selection_page():
