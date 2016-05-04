@@ -12,7 +12,7 @@ LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
 LED_DMA        = 5       # DMA channel to use for generating signal (try 5)
 LED_BRIGHTNESS = 50    # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
-song_dir = "../DebugData.csv"
+song_dir = "GooeyData.csv"
 # Color of the lEDs goes Green, Blue, Red 
 red = Color(0, 0, 255)
 orange = Color(0, 127, 255)
@@ -38,7 +38,7 @@ def AudioVisualizer(song_dir, strip, LED_COUNT):
 	for k in range(len(bar_array)): #k is the number of the frame
 		pix_array = np.zeros((1, 140))
 		frame = bar_array[k] #bar_array[k] is the frequency values
-		for i in frame:
+		for i in range(len(frame)):
 			for j in range(int(frame[i])):
 				ind1 = q*i+j
 				ind2 = q*i + q -j -1
