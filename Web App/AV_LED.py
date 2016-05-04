@@ -67,5 +67,5 @@ def ShowLEDs(song_dir, LED_BRIGHTNESS = 50, LED_COUNT = 140, LED_PIN = 18, LED_F
 
 # # Main program logic follows:
 if __name__ == '__main__':
-	playsong.playit('audio/Gooey.wav')
+	
 	ShowLEDs(song_dir)
