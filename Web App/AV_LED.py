@@ -29,7 +29,7 @@ roygbiv = [red, orange, \
 """ Run LEDs """
 def AudioVisualizer(song_dir, strip, LED_COUNT):
 	bar_array = np.genfromtxt(song_dir, delimiter=',', dtype=None, names=True)
-	fps = 24
+	fps = 1
 	q = int(floor(LED_COUNT  / 14))
 	for i in range(LED_COUNT):
 		color = Color(0, 170, 100)
