@@ -66,6 +66,5 @@ def ShowLEDs(song_dir, LED_BRIGHTNESS = 50, LED_COUNT = 140, LED_PIN = 18, LED_F
 
 # # Main program logic follows:
 if __name__ == '__main__':
-	# AudioVisualizer(song_dir, strip, LED_COUNT)
 
 	ShowLEDs(song_dir)
