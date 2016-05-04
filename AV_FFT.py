@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 import subprocess as sp
 
 # song_file must be a .wav file
-song_file = 'Web App/audio/Gooey.wav'
+song_file = 'Web App/audio/Disciples.wav'
 song_name = str(os.path.splitext(song_file.split('/')[-1])[0])
 
 
@@ -126,37 +126,38 @@ def RemapFftInterval(fft_array):
 			bar_vals.append(0)
 	return bar_vals
 
-for offset in range(0, total_transforms):
-	start = int(offset * fourier_index)
-	end = int((offset * fourier_index) + fourier_index -1)
+if __name__ == '__main__':
+	for offset in range(0, total_transforms):
+		start = int(offset * fourier_index)
+		end = int((offset * fourier_index) + fourier_index -1)
 
-	sample_range = song_data[start:end]
+		sample_range = song_data[start:end]
 
-	""" This is where we actually use FFT """
-	fft_data = abs(np.fft.fft(sample_range))
+		""" This is where we actually use FFT """
+		fft_data = abs(np.fft.fft(sample_range))
 
-	fft_data *= ((2**.5)/fourier_index)	# normalize it a second time to make numbers sensible
-	AvgFftBands(fft_data)
-	bar_levels = RemapFftInterval(fft_averages)
-	bar_levels = np.transpose(bar_levels)
-	all_fft_avgs.append(bar_levels)
+		fft_data *= ((2**.5)/fourier_index)	# normalize it a second time to make numbers sensible
+		AvgFftBands(fft_data)
+		bar_levels = RemapFftInterval(fft_averages)
+		bar_levels = np.transpose(bar_levels)
+		all_fft_avgs.append(bar_levels)
 
-	""" Uncomment this if you want to make bar graphs """
-	# x_axis = range(0,12)
-	# y_axis = fft_averages
-	# width = 0.35
-	# p1 = plt.bar(x_axis, y_axis, width, color='r')
-	# print next
+		# """ Uncomment this if you want to make bar graphs """
+		# x_axis = range(0,12)
+		# y_axis = fft_averages
+		# width = 0.35
+		# p1 = plt.bar(x_axis, y_axis, width, color='r')
+		# print next
 
-	# filename = str('frame_%05d' % offset) + '.png'
-	# plt.savefig(filename, dpi=100)
-	# plt.close()
+		# filename = str('frame_%05d' % offset) + '.png'
+		# plt.savefig(filename, dpi=100)
+		# plt.close()
 
-	# command1 = ['/usr/bin/ffmpeg' '-f' 'image2' '-r' '24' '-i' 'frame_%05d.png' '-vcodec mpeg4' '-y' 'movie.mp4']
-	# pipe = sp.Popen(command1, stdin=sp.PIPE,stdout=sp.PIPE, stderr=sp.PIPE)
+		# command1 = ['/usr/bin/ffmpeg' '-f' 'image2' '-r' '24' '-i' 'frame_%05d.png' '-vcodec mpeg4' '-y' 'movie.mp4']
+		# pipe = sp.Popen(command1, stdin=sp.PIPE,stdout=sp.PIPE, stderr=sp.PIPE)
 
-""" Uncomment this if you want to save FFT Data to a CSV """
-filename = str(song_name) + 'Data' + '.csv'
-np.savetxt(filename, all_fft_avgs, delimiter=",")
+	""" Uncomment this if you want to save FFT Data to a CSV """
+	filename = str(song_name) + 'Data' + '.csv'
+	np.savetxt(filename, all_fft_avgs, delimiter=",")
 
-print "Done!"
+	print "Done!"
