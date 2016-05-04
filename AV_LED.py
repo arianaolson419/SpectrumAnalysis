@@ -53,7 +53,7 @@ def AudioVisualizer(song_dir, strip, LED_COUNT):
 				strip.setPixelColor(i, color)
 
 		strip.show()	
-		time.sleep(1/(fps*10))
+		time.sleep(1/fps)
 
 
 # # Main program logic follows:
