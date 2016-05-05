@@ -26,6 +26,12 @@ songs = {'song1': ['White Freckles','audio/White_Freckles.wav', '../White_Freckl
 	'song4': ['Disciples', 'audio/Disciples.wav', '../DisciplesData.csv'],
 	'song5': ["I See Fire", "audio/ISeeFire.wav", "../ISeeFireData.csv"]}
 
+def play(song):
+	playsong.playit(songs[song][1]) #plays the song
+
+def light(song):
+	AV_LED.ShowLEDs(songs[song][2]) #controls LEDs
+
 @app.route('/')
 def selection_page():
 	'''Displays the initial page with the big red button (index.html)'''
@@ -35,10 +41,8 @@ def test(song=None):
 	'''displays the page letting the user know what song is being played (play_song.html). 
 	Also runs a python script with arguments on the computer'''
 	song = request.form['song'] #determines which song was selected
-	f1 = playsong.playit(songs[song][1]) #plays the song
-	f2 = AV_LED.ShowLEDs(songs[song][2])
-	Thread(target = f1()).start()
-	Thread(target = f2()).start()
+	Thread(target = play(song)).start()
+	Thread(target = lights(song)).start()
 	return render_template('play_song.html', song=songs[song][0]) #displays the play_song page
 
 if __name__ == '__main__':
