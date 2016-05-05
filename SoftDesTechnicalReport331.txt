@@ -1,0 +1,47 @@
+﻿Agenda:
+
+
+Agenda discussion: 1 min
+Background and context: 5 min
+Our current issues / our solutions: 4 min
+Ideation: 5 min
+Discussion: 10 min
+
+
+
+
+Background/Context:
+
+
+Big Idea: We are interested in exploring spectrum analysis of music. We want to take music and do analysis on it in the frequency and time domain, with the idea of building some LED visualizer.  (Paige)
+
+
+Learning Goals: Learn the interface between Python and Pi/Arduino. Learn how to use Flask to create a GUI. Learn about sentiment analysis.  (Ariana)
+
+
+Current Goal: Working spectrum analysis using scipy that makes a visualization on some sort of LED sculpture using a raspberry pi with an interface (Harper)
+
+
+Stretch Goal: Colors of the visualizer relate to sentiment analysis. (Paige)
+
+
+Where We Are: Learning how FFT works in scipy, creating a simple bar visualizer with pygame.
+* Decided to use scipy FFT because making our own was less heavy on programming and more heavy on math. (Harper)
+* Bar graph visualizer works - need to work on translating frequency and amplitude ranges into usable ranges (Paige)
+* Have LEDs and arduino / Pi (started researching library)- need to start playing around with them (Ariana)
+
+
+
+
+Current Issues:
+* Project is too simple 
+   * Libraries to create GUI? 
+   * Difficulty of sentiment analysis
+
+
+
+
+Ideation/Discussion - Where do we go next:
+* Where do you see points of failure in our proposed ideas?
+* What would you suggest we focus on in this project?
+* Do you have any other ideas for making our project more interesting / difficult?

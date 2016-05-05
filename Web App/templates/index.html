@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>LED Visualizer</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"/>
+</head>
+<body>
+	
+	<h1>FFT LED Visualizer!</h1>
+	
+	<div class="wrapper">
+	<!-- Takes input from the user -->
+	<form method="POST" action="play_song">
+	<!-- Create a dropdown menu. Add another song by creating another <option> tag -->
+	<select style="width: 200px" name="song"> 
+		<option value="song1">White Freckles (Ariel Pink)</option>
+		<option value="song2">Gooey (Glass Animals)</option>
+		<option value="song3">Sine Wave</option>
+		<option value="song4">Disciples (Tame Impala)</option>
+		<option value="song5">I See Fire (Ed Sheeran)</option>
+		<option value="song6">Radioactive (Imagine Dragons)</option>
+		<option value="song7">Daybreak (Overwerk)</option>
+		
+	</select>
+	<br><br><br>
+	<!-- Create a button -->
+	<input type="submit" class="button button2" value="Start!">
+	</form>
+	</div>
+
+</body>
+</html>
