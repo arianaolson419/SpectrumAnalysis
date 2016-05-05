@@ -3,8 +3,8 @@ import subprocess
 
 def playit(song):
 	'''Plays a given song'''
-	cmd = 'mplayer ' + song
-	popen = subprocess.Popen(cmd)
+	cmd = 'aplay ' + song
+	popen = subprocess.Popen(cmd, shell=True)
 	popen.communicate()
 
 
