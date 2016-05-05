@@ -25,7 +25,7 @@ Breadboard and appropriate jumper wires
 
 ### Creating visualization for a new song
 1. In the file AV_FFT.py, change the song_file to the directory of your song of choice
-2. Uncomment the Bar Graph creator section of the file and the CSV creator code(at the bottom of the page) 
+2. Uncomment the CSV creator code(at the bottom of the page) 
 3. Run the file to compile the frames of the song you created into an animation and export the csv file to your LED program
 4. Add the new song to the directory in page.py and index.html.This adds the new song to the web app
 5. You can now use this like all of the preloaded songs!
