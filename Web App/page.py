@@ -13,6 +13,9 @@ from flask import *
 import os, sys
 import playsong
 import AV_LED
+import threading
+from threading import Thread
+import time
 app = Flask(__name__)
 
 #keys correspond to the choices in the dropdown menu.
@@ -32,8 +35,10 @@ def test(song=None):
 	'''displays the page letting the user know what song is being played (play_song.html). 
 	Also runs a python script with arguments on the computer'''
 	song = request.form['song'] #determines which song was selected
-	playsong.playit(songs[song][1]) #plays the song
-	AV_LED.ShowLEDs(songs[song][2])
+	f1 = playsong.playit(songs[song][1]) #plays the song
+	f2 = AV_LED.ShowLEDs(songs[song][2])
+	Thread(target = f1()).start()
+    Thread(target = f2()).start()
 	return render_template('play_song.html', song=songs[song][0]) #displays the play_song page
 
 if __name__ == '__main__':
