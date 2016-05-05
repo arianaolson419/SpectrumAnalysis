@@ -20,7 +20,8 @@ app = Flask(__name__)
 songs = {'song1': ['White Freckles','audio/White_Freckles.wav', '../White_FrecklesData.csv'],	
 	'song2': ['Gooey', 'audio/Gooey.wav', '../GooeyData.csv'],
 	'song3': ['Sine Wave', 'audio/440_sine.wav', '../440_sineData.csv'],
-	'song4': ['Disciples', 'audio/Disciples.wav', '../DisciplesData.csv']}
+	'song4': ['Disciples', 'audio/Disciples.wav', '../DisciplesData.csv'],
+	'song5': ["I See Fire", "audio/ISeeFire.wav", "../ISeeFireData.csv"]}
 
 @app.route('/')
 def selection_page():
