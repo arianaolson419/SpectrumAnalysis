@@ -40,8 +40,8 @@ def test(song=None):
 	'''displays the page letting the user know what song is being played (play_song.html). 
 	Also runs a python script with arguments on the computer'''
 	song = request.form['song'] #determines which song was selected
-	thread.start_new_thread(play, (song,))
 	thread.start_new_thread(light, (song,))
+	thread.start_new_thread(play, (song,))
 	return render_template('play_song.html', song=songs[song][0]) #displays the play_song page
 
 if __name__ == '__main__':
