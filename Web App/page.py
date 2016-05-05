@@ -23,7 +23,9 @@ songs = {'song1': ['White Freckles','audio/White_Freckles.wav', '../White_Freckl
 	'song2': ['Gooey', 'audio/Gooey.wav', '../GooeyData.csv'],
 	'song3': ['Sine Wave', 'audio/440_sine.wav', '../440_sineData.csv'],
 	'song4': ['Disciples', 'audio/Disciples.wav', '../DisciplesData.csv'],
-	'song5': ["I See Fire", "audio/ISeeFire.wav", "../ISeeFireData.csv"]}
+	'song5': ['I See Fire', 'audio/ISeeFire.wav', '../ISeeFireData.csv'],
+	'song6': ['Radioactive', 'audio/Radioactive.wav', '../RadioactiveData.csv'],
+	'song7': ['Daybreak', 'audio/Daybreak.wav', '../DaybreakData.csv']}
 
 def play(song):
 	playsong.playit(songs[song][1]) #plays the song
