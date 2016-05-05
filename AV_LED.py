@@ -2,6 +2,7 @@ import time
 import numpy as np
 from neopixel import *
 from math import floor
+import wave
 
 """ Program to Control LEDs """
 
@@ -12,7 +13,7 @@ LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
 LED_DMA        = 5       # DMA channel to use for generating signal (try 5)
 LED_BRIGHTNESS = 50    # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
-song_dir = "GooeyData.csv"
+song_dir = "DaybreakData.csv"
 # Color of the lEDs goes Green, Blue, Red (instead of RGB)
 
 """ Create a list of colors """
@@ -27,14 +28,20 @@ violet = Color(143, 0, 255)
 roygbiv = [red, orange, \
 	yellow, green, blue, indigo, violet]*2
 
+# number of individual data snippets (frames) in song
+frames = song.getnframes()
+# frequency of frames per second
+frame_rate = song.getframerate()
+# determine the length of the song by dividing frames by frequency
+song_length = frames / float(frame_rate)
 
-
+""" Runs Audio Visualizer for Helix Sculpture """
 def AudioVisualizer(song_dir, strip, LED_COUNT):
-	""" Runs LEDs """
+	# read csv with FFT data
 	bar_array = np.genfromtxt(song_dir, delimiter=',', dtype=None, names=True)
-	fps = 24
+	# q is the number of leds on each bar
 	q = int(floor(LED_COUNT  / 14))
-	#assign colors to the LEDs in the array
+	# assign colors to the LEDs in the array
 	for k in range(len(bar_array)): #k is the number of the frame
 		pix_array = np.zeros((1, 140))
 		frame = bar_array[k] #bar_array[k] is the frequency values
@@ -53,7 +60,7 @@ def AudioVisualizer(song_dir, strip, LED_COUNT):
 				strip.setPixelColor(i, color)
 
 		strip.show()	
-		time.sleep(1/fps)
+		time.sleep(song_length/ len(bar_array))
 
 def ShowLEDs(song_dir, LED_BRIGHTNESS = 50, LED_COUNT = 140, LED_PIN = 18, LED_FREQ_HZ = 800000, LED_DMA = 5, LED_INVERT = False):
 	""" Initializes library and starts the visualizer """
