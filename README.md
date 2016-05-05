@@ -2,6 +2,10 @@
 
 Authors: Ariana Olson, Harper Owen, Paige Pfenninger
 
+## Website
+
+Our website can be found here: http://arianaolson419.github.io/SpectrumAnalysis/results.html
+
 ## Description
 
 This program creates and LED music visualizer using Fast Fourier Transforms. An LED array controlled by a Raspberry Pi lights up in time to music, displaying the FFT bars.
