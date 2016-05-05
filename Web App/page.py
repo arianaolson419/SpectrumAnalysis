@@ -41,6 +41,7 @@ def test(song=None):
 	Also runs a python script with arguments on the computer'''
 	song = request.form['song'] #determines which song was selected
 	thread.start_new_thread(light, (song,))
+	time.sleep(4)
 	thread.start_new_thread(play, (song,))
 	return render_template('play_song.html', song=songs[song][0]) #displays the play_song page
 

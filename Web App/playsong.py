@@ -6,7 +6,6 @@ def playit(song):
 	'''Plays a given song'''
 	cmd = 'aplay ' + song
 	popen = subprocess.Popen(cmd, shell=True)
-	time.sleep(2)
 	popen.communicate()
 
 
