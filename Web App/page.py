@@ -38,7 +38,7 @@ def test(song=None):
 	f1 = playsong.playit(songs[song][1]) #plays the song
 	f2 = AV_LED.ShowLEDs(songs[song][2])
 	Thread(target = f1()).start()
-    Thread(target = f2()).start()
+	Thread(target = f2()).start()
 	return render_template('play_song.html', song=songs[song][0]) #displays the play_song page
 
 if __name__ == '__main__':
